@@ -2861,8 +2861,10 @@ def MolToLAMMPSdataBlock(mol, confId=0, velocity=True, temp=300, drude=False, cl
         utils.radon_print('bond_style is missing in MolToLAMMPSdataBlock. Assuming harmonic for bond_style.', level=2)
         mol.SetProp('bond_style', 'harmonic')
     for bond in mol.GetBonds():
-        btype = bond.GetProp('ff_type')
-        if btype in unique_btype:
+        btype = bond.GetProp('ff_type') if bond.HasProp('ff_type') else None
+        if btype is None:
+            pass
+        elif btype in unique_btype:
             bond.SetIntProp('ff_type_num', unique_btype.index(btype)+1)
         else:
             ib += 1
