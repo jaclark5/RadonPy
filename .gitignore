@@ -5,3 +5,7 @@
 build
 *__pycache__
 *.egg-info
+
+#python cache and timing files
+**/timer.dat
+**/.ipynb_checkpoints
