@@ -4,7 +4,7 @@
 # ff.pfp module
 # ******************************************************************************
 
-
+from ..core import utils
 class PFP():
     """
     pfp.PFP() class
@@ -32,7 +32,7 @@ class PFP():
         self.improper_style = None
 
 
-    def ff_assign(self, mol):
+    def ff_assign(self, mol, **kwargs):
         """
         PFP.ff_assign
 
@@ -43,6 +43,8 @@ class PFP():
             True: Success assignment
             False: Failure assignment
         """
+        if kwargs:
+            utils.radon_print(f"The following kwargs are not used in PFP: {kwargs}")
 
         result = self.assign_ptypes(mol)
 
