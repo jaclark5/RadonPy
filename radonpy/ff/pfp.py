@@ -47,6 +47,9 @@ class PFP():
             utils.radon_print(f"The following kwargs are not used in PFP: {kwargs}")
 
         result = self.assign_ptypes(mol)
+        setattr(mol, 'angles', {})
+        setattr(mol, 'dihedrals', {})
+        setattr(mol, 'impropers', {})
 
         return result
 
