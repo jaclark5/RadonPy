@@ -15,5 +15,5 @@ dependencies:
   - dftd3-python
   - resp
   - pip:
-    - minepy
+    - git+https://github.com/jaclark5/minepy@update_install
     - -e .

@@ -1,0 +1,497 @@
+{
+    "ff_name": "pfp",
+    "ff_class": "ml",
+    "pair_style": "pfp_api",
+    "particle_types": [
+        {
+            "tag": "H",
+            "name": "H",
+            "elem": "H",
+            "mass": 1.0080,
+            "desc": "Hydrogen"
+        },
+        {
+            "tag": "He",
+            "name": "He",
+            "elem": "He",
+            "mass": 4.0026,
+            "desc": "Helium"
+        },
+        {
+            "tag": "Li",
+            "name": "Li",
+            "elem": "Li",
+            "mass": 7.0,
+            "desc": "Lithium"
+        },
+        {
+            "tag": "Be",
+            "name": "Be",
+            "elem": "Be",
+            "mass": 9.0122,
+            "desc": "Beryllium"
+        },
+        {
+            "tag": "B",
+            "name": "B",
+            "elem": "B",
+            "mass": 10.81,
+            "desc": "Boron"
+        },
+        {
+            "tag": "C",
+            "name": "C",
+            "elem": "C",
+            "mass": 12.011,
+            "desc": "Carbon"
+        },
+        {
+            "tag": "N",
+            "name": "N",
+            "elem": "N",
+            "mass": 14.007,
+            "desc": "Nitrogen"
+        },
+        {
+            "tag": "O",
+            "name": "O",
+            "elem": "O",
+            "mass": 15.999,
+            "desc": "Oxygen"
+        },
+        {
+            "tag": "F",
+            "name": "F",
+            "elem": "F",
+            "mass": 18.998,
+            "desc": "Fluorine"
+        },
+        {
+            "tag": "Ne",
+            "name": "Ne",
+            "elem": "Ne",
+            "mass": 20.180,
+            "desc": "Neon"
+        },
+        {
+            "tag": "Na",
+            "name": "Na",
+            "elem": "Na",
+            "mass": 22.9898,
+            "desc": "Sodium"
+        },
+        {
+            "tag": "Mg",
+            "name": "Mg",
+            "elem": "Mg",
+            "mass": 24.305,
+            "desc": "Magnesium"
+        },
+        {
+            "tag": "Al",
+            "name": "Al",
+            "elem": "Al",
+            "mass": 26.982,
+            "desc": "Aluminium"
+        },
+        {
+            "tag": "Si",
+            "name": "Si",
+            "elem": "Si",
+            "mass": 28.085,
+            "desc": "Silicon"
+        },
+        {
+            "tag": "P",
+            "name": "P",
+            "elem": "P",
+            "mass": 30.974,
+            "desc": "Phosphorus"
+        },
+        {
+            "tag": "S",
+            "name": "S",
+            "elem": "S",
+            "mass": 32.07,
+            "desc": "Sulfur"
+        },
+        {
+            "tag": "Cl",
+            "name": "Cl",
+            "elem": "Cl",
+            "mass": 35.45,
+            "desc": "Chlorine"
+        },
+        {
+            "tag": "Ar",
+            "name": "Ar",
+            "elem": "Ar",
+            "mass": 39.948,
+            "desc": "Argon"
+        },
+        {
+            "tag": "K",
+            "name": "K",
+            "elem": "K",
+            "mass": 39.098,
+            "desc": "Potassium"
+        },
+        {
+            "tag": "Ca",
+            "name": "Ca",
+            "elem": "Ca",
+            "mass": 40.078,
+            "desc": "Calcium"
+        },
+        {
+            "tag": "Sc",
+            "name": "Sc",
+            "elem": "Sc",
+            "mass": 44.956,
+            "desc": "Scandium"
+        },
+        {
+            "tag": "Ti",
+            "name": "Ti",
+            "elem": "Ti",
+            "mass": 47.867,
+            "desc": "Titanium"
+        },
+        {
+            "tag": "V",
+            "name": "V",
+            "elem": "V",
+            "mass": 50.942,
+            "desc": "Vanadium"
+        },
+        {
+            "tag": "Cr",
+            "name": "Cr",
+            "elem": "Cr",
+            "mass": 51.996,
+            "desc": "Chromium"
+        },
+        {
+            "tag": "Mn",
+            "name": "Mn",
+            "elem": "Mn",
+            "mass": 54.938,
+            "desc": "Manganese"
+        },
+        {
+            "tag": "Fe",
+            "name": "Fe",
+            "elem": "Fe",
+            "mass": 55.845,
+            "desc": "Iron"
+        },
+        {
+            "tag": "Co",
+            "name": "Co",
+            "elem": "Co",
+            "mass": 58.933,
+            "desc": "Cobalt"
+        },
+        {
+            "tag": "Ni",
+            "name": "Ni",
+            "elem": "Ni",
+            "mass": 58.693,
+            "desc": "Nickel"
+        },
+        {
+            "tag": "Cu",
+            "name": "Cu",
+            "elem": "Cu",
+            "mass": 63.546,
+            "desc": "Copper"
+        },
+        {
+            "tag": "Zn",
+            "name": "Zn",
+            "elem": "Zn",
+            "mass": 65.38,
+            "desc": "Zinc"
+        },
+        {
+            "tag": "Ga",
+            "name": "Ga",
+            "elem": "Ga",
+            "mass": 69.723,
+            "desc": "Gallium"
+        },
+        {
+            "tag": "Ge",
+            "name": "Ge",
+            "elem": "Ge",
+            "mass": 72.63,
+            "desc": "Germanium"
+        },
+        {
+            "tag": "As",
+            "name": "As",
+            "elem": "As",
+            "mass": 74.922,
+            "desc": "Arsenic"
+        },
+        {
+            "tag": "Se",
+            "name": "Se",
+            "elem": "Se",
+            "mass": 78.971,
+            "desc": "Selenium"
+        },
+        {
+            "tag": "Br",
+            "name": "Br",
+            "elem": "Br",
+            "mass": 79.904,
+            "desc": "Bromine"
+        },
+        {
+            "tag": "Kr",
+            "name": "Kr",
+            "elem": "Kr",
+            "mass": 83.798,
+            "desc": "Krypton"
+        },
+        {
+            "tag": "Rb",
+            "name": "Rb",
+            "elem": "Rb",
+            "mass": 85.468,
+            "desc": "Rubidium"
+        },
+        {
+            "tag": "Sr",
+            "name": "Sr",
+            "elem": "Sr",
+            "mass": 87.62,
+            "desc": "Strontium"
+        },
+        {
+            "tag": "Y",
+            "name": "Y",
+            "elem": "Y",
+            "mass": 88.906,
+            "desc": "Yttrium"
+        },
+        {
+            "tag": "Zr",
+            "name": "Zr",
+            "elem": "Zr",
+            "mass": 91.224,
+            "desc": "Zirconium"
+        },
+        {
+            "tag": "Nb",
+            "name": "Nb",
+            "elem": "Nb",
+            "mass": 92.906,
+            "desc": "Niobium"
+        },
+        {
+            "tag": "Mo",
+            "name": "Mo",
+            "elem": "Mo",
+            "mass": 95.95,
+            "desc": "Molybdenum"
+        },
+        {
+            "tag": "Tc",
+            "name": "Tc",
+            "elem": "Tc",
+            "mass": 96.9064,
+            "desc": "Technetium"
+        },
+        {
+            "tag": "Ru",
+            "name": "Ru",
+            "elem": "Ru",
+            "mass": 101.07,
+            "desc": "Ruthenium"
+        },
+        {
+            "tag": "Rh",
+            "name": "Rh",
+            "elem": "Rh",
+            "mass": 102.91,
+            "desc": "Rhodium"
+        },
+        {
+            "tag": "Pd",
+            "name": "Pd",
+            "elem": "Pd",
+            "mass": 106.42,
+            "desc": "Palladium"
+        },
+        {
+            "tag": "Ag",
+            "name": "Ag",
+            "elem": "Ag",
+            "mass": 107.87,
+            "desc": "Silver"
+        },
+        {
+            "tag": "Cd",
+            "name": "Cd",
+            "elem": "Cd",
+            "mass": 112.41,
+            "desc": "Cadmium"
+        },
+        {
+            "tag": "In",
+            "name": "In",
+            "elem": "In",
+            "mass": 114.818,
+            "desc": "Indium"
+        },
+        {
+            "tag": "Sn",
+            "name": "Sn",
+            "elem": "Sn",
+            "mass": 118.71,
+            "desc": "Tin"
+        },
+        {
+            "tag": "Sb",
+            "name": "Sb",
+            "elem": "Sb",
+            "mass": 121.76,
+            "desc": "Antimony"
+        },
+        {
+            "tag": "Te",
+            "name": "Te",
+            "elem": "Te",
+            "mass": 127.60,
+            "desc": "Tellurium"
+        },
+        {
+            "tag": "I",
+            "name": "I",
+            "elem": "I",
+            "mass": 126.90,
+            "desc": "Iodine"
+        },
+        {
+            "tag": "Xe",
+            "name": "Xe",
+            "elem": "Xe",
+            "mass": 131.29,
+            "desc": "Xenon"
+        },
+        {
+            "tag": "Cs",
+            "name": "Cs",
+            "elem": "Cs",
+            "mass": 132.91,
+            "desc": "Cesium"
+        },
+        {
+            "tag": "Ba",
+            "name": "Ba",
+            "elem": "Ba",
+            "mass": 137.33,
+            "desc": "Barium"
+        },
+        {
+            "tag": "La",
+            "name": "La",
+            "elem": "La",
+            "mass": 138.91,
+            "desc": "Lanthanum"
+        },
+        {
+            "tag": "Ce",
+            "name": "Ce",
+            "elem": "Ce",
+            "mass": 140.12,
+            "desc": "Cerium"
+        },
+        {
+            "tag": "Hf",
+            "name": "Hf",
+            "elem": "Hf",
+            "mass": 178.49,
+            "desc": "Hafnium"
+        },
+        {
+            "tag": "Ta",
+            "name": "Ta",
+            "elem": "Ta",
+            "mass": 180.95,
+            "desc": "Tantalum"
+        },
+        {
+            "tag": "W",
+            "name": "W",
+            "elem": "W",
+            "mass": 183.84,
+            "desc": "Tungsten"
+        },
+        {
+            "tag": "Re",
+            "name": "Re",
+            "elem": "Re",
+            "mass": 186.21,
+            "desc": "Rhenium"
+        },
+        {
+            "tag": "Os",
+            "name": "Os",
+            "elem": "Os",
+            "mass": 190.23,
+            "desc": "Osmium"
+        },
+        {
+            "tag": "Ir",
+            "name": "Ir",
+            "elem": "Ir",
+            "mass": 192.22,
+            "desc": "Iridium"
+        },
+        {
+            "tag": "Pt",
+            "name": "Pt",
+            "elem": "Pt",
+            "mass": 195.08,
+            "desc": "Platinum"
+        },
+        {
+            "tag": "Au",
+            "name": "Au",
+            "elem": "Au",
+            "mass": 196.97,
+            "desc": "Gold"
+        },
+        {
+            "tag": "Hg",
+            "name": "Hg",
+            "elem": "Hg",
+            "mass": 200.59,
+            "desc": "Mercury"
+        },
+        {
+            "tag": "Tl",
+            "name": "Tl",
+            "elem": "Tl",
+            "mass": 204.38,
+            "desc": "Thallium"
+        },
+        {
+            "tag": "Pb",
+            "name": "Pb",
+            "elem": "Pb",
+            "mass": 207.2,
+            "desc": "Lead"
+        },
+        {
+            "tag": "Bi",
+            "name": "Bi",
+            "elem": "Bi",
+            "mass": 208.98,
+            "desc": "Bismuth"
+        }
+    ]
+}
