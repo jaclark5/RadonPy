@@ -3143,8 +3143,9 @@ def MolToLAMMPSdataBlock(mol, confId=0, velocity=True, temp=300, drude=False, cl
         lines.append('')
 
         for bond in mol.GetBonds():
-            lines.append('%5d\t%i\t%i\t%i' %
-                (bond.GetIdx()+1, bond.GetIntProp('ff_type_num'), bond.GetBeginAtom().GetIdx()+1, bond.GetEndAtom().GetIdx()+1))
+            if bond.HasProp('ff_type_num'):
+                lines.append('%5d\t%i\t%i\t%i' %
+                    (bond.GetIdx()+1, bond.GetIntProp('ff_type_num'), bond.GetBeginAtom().GetIdx()+1, bond.GetEndAtom().GetIdx()+1))
 
 
     if len(mol.angles) > 0:
