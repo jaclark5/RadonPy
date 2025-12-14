@@ -69,5 +69,6 @@ class PFP():
         
         for p in mol.GetAtoms():
             p.SetProp('ff_type', p.GetSymbol())
+            p.SetDoubleProp('AtomicCharge', 0.0)
         
         return result_flag
