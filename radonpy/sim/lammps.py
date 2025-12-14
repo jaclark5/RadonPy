@@ -407,8 +407,18 @@ class LAMMPS():
 
         indata.append('')
         if md.pbc:
-            indata.append('pair_style %s %s %s' % (md.pair_style, str(md.cutoff_in), str(md.cutoff_out)))
-            indata.append('kspace_style %s %s' % (md.kspace_style, md.kspace_style_accuracy))
+            if md.pair_style == 'pfp_api':
+                indata.append('pair_style pfp_api v8.0.0 R2SCAN')
+                # Collect unique atomic species from the molecule
+                if md.mol is not None:
+                    species = set()
+                    for atom in md.mol.GetAtoms():
+                        species.add(atom.GetSymbol())
+                    species_str = ' '.join(sorted(species))
+                    indata.append('pair_coeff * * species %s' % species_str)
+            else:
+                indata.append('pair_style %s %s %s' % (md.pair_style, str(md.cutoff_in), str(md.cutoff_out)))
+                indata.append('kspace_style %s %s' % (md.kspace_style, md.kspace_style_accuracy))
         else:
             indata.append('pair_style %s %s %s' % (md.pair_style_nonpbc, str(md.cutoff_in), str(md.cutoff_out)))
 
@@ -2827,6 +2837,8 @@ def MolToLAMMPSdataBlock(mol, confId=0, velocity=True, temp=300, drude=False, cl
                 p_mass.append(atom.GetMass())
             if mol.GetProp('pair_style') == 'lj':
                 p_coeff.append([atom.GetDoubleProp('ff_epsilon'), atom.GetDoubleProp('ff_sigma')])
+            elif mol.GetProp('pair_style') == 'pfp_api':
+                p_coeff.append(atom.GetSymbol())
             else:
                 utils.radon_print('pair_style %s is not available.' % mol.GetProp('pair_style'), level=3)
             atom.SetIntProp('ff_type_num', ip)
@@ -2957,6 +2969,8 @@ def MolToLAMMPSdataBlock(mol, confId=0, velocity=True, temp=300, drude=False, cl
         if mol.GetProp('pair_style') == 'lj':
             p_coeff.append([cl_params['iparam_epsilon'], cl_params['iparam_sigma']])
             p_coeff.append([cl_params['jparam_epsilon'], cl_params['jparam_sigma']])
+        elif mol.GetProp('pair_style') == 'pfp_api':
+            pass
         else:
             utils.radon_print('pair_style %s is not available.' % mol.GetProp('pair_style'), level=3)
         cl_param_list[i]['iparam_atomtype'] = ip+1
@@ -3035,14 +3049,15 @@ def MolToLAMMPSdataBlock(mol, confId=0, velocity=True, temp=300, drude=False, cl
             else:
                 lines.append('%5d\t%f\t# %s' % (i+1, p_mass[i], ptype))
 
-        lines.append('')
-        lines.append('Pair Coeffs')
-        lines.append('')
+        if mol.GetProp('pair_style') != 'pfp_api':
+            lines.append('')
+            lines.append('Pair Coeffs')
+            lines.append('')
 
-        for i, ptype in enumerate(unique_ptype):
-            c = '\t'.join([ '%f' % x for x in p_coeff[i] ])
-            #lines.append('%5d\t%f\t%f\t# %s' % (i+1, p_coeff[i][0], p_coeff[i][1], ptype))
-            lines.append('%5d\t%s\t# %s' % (i+1, c, ptype))
+            for i, ptype in enumerate(unique_ptype):
+                c = '\t'.join([ '%f' % x for x in set(p_coeff[i]) ])
+                #lines.append('%5d\t%f\t%f\t# %s' % (i+1, p_coeff[i][0], p_coeff[i][1], ptype))
+                lines.append('%5d\t%s\t# %s' % (i+1, c, ptype))
 
 
     if len(unique_btype) > 0:
